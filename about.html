@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <style>
+        body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #121212; /* Dark background */
+    color: #f0f0f0; /* Light text color */
+    line-height: 1.6;
+    text-align: center; /* Center text */
+    padding: 20px; /* Padding around the body */
+}
+    header {
+        background-color: #0d0d0d; /* Darker header background */
+        padding: 20px;
+        display: flex; /* Use flexbox to align items */
+        justify-content: space-between; /* Space between logo and nav */
+        align-items: center; /* Center items vertically */
+    }
+    header {
+        transform: translateY(-100%); /* Start off-screen */
+        transition: transform 0.5s ease; /* Smooth transition */
+    }
+
+    header.show {
+        transform: translateY(0); /* Move into position */
+    }
+    header {
+        transform: translateY(-100%); /* Start off-screen */
+        transition: transform 0.5s ease; /* Smooth transition */
+    }
+
+    header.show {
+    transform: translateY(0); /* Move into position */
+}
+
+.logo {
+    margin: 0; /* Remove default margin */
+    color: #00cfff; /* Neon blue text color */
+    /*text-shadow: 0 0 10px #00cfff; /* Neon glow effect */
+    font-size: 2em; /* Adjust font size if needed */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    color: #00cfff; /* Neon blue links */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s, text-shadow 0.3s; /* Added text shadow transition */
+}
+
+nav a:hover {
+    color: #fff; /* Change color on hover */
+    text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff; /* Neon glow effect */
+}
+h1 {
+    color: #f3ecec; /* Lighter color for heading */
+    margin-bottom: 20px; /* Space below heading */
+}
+
+div {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background for paragraph */
+    padding: 20px; /* Padding inside paragraph */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+    max-width: 800px; /* Max width for readability */
+    margin: 0 auto; /* Center the paragraph */
+    color: #d1d1d1; /* Slightly muted text color for paragraphs */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <h3 class="logo">ABOUT</h3>
+        <nav>
+            <ul>
+                <li><a href="1_11.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1>ABOUT</h1>
+    <div>   
+    <p>
+        My name is Ritish Kalia, and I am currently pursuing a Bachelor of Technology in Computer Science Engineering </p><p> at LPU. As an enthusiastic learner with a passion for technology, I have dedicated myself to honing my skills in</p><p> web development. Recently, I took the initiative to build my personal portfolio website using only HTML and CSS.</p><p> This project allowed me to showcase my journey, achievements, and aspirations while reinforcing my</p><p> understanding of these fundamental web technologies.
+
+        In addition to web development, I have a keen interest in</p><p> exploring various aspects of programming, including algorithms, data structures, and software development</p><p> methodologies. I enjoy tackling challenges and solving problems through coding, which has inspired me to take</p><p> part in various projects, including a simple e-commerce site and a task management application. These</p><p>experiences have not only enhanced my technical skills but also taught me the importance of teamwork and </p> <p>collaboration.
+
+        As I continue my academic journey, I am eager to explore more advanced concepts and</p><p> frameworks, such as React and Node.js. I believe that continuous learning is essential in this rapidly evolving</p><p> field, and I am committed to expanding my knowledge and skills. With each project, I aim to create engaging and</p><p> user-friendly applications that reflect my growing expertise in the field of computer science. I look forward to</p><p> connecting with like-minded individuals and contributing to exciting projects in the future.
+    </p>
+</div>
+    <script>
+        function applyAnimations() {
+            // Animate header
+            const header = document.querySelector('header');
+            header.classList.add('show'); // Add the class to trigger animation
+    
+            // Fade-in effect for sections
+            const sections = document.querySelectorAll('h1, p'); // Target heading and paragraph
+            
+            sections.forEach((section, index) => {
+                section.style.opacity = 0; // Start with invisible
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                section.style.transform = 'translateY(20px)'; // Start slightly lower
+    
+                // Delay the animation to stagger them
+                setTimeout(() => {
+                    section.style.opacity = 1; // Fade in
+                    section.style.transform = 'translateY(0)'; // Slide to original position
+                }, 200 + index * 200); // Stagger each section
+            });
+        }
+    
+        document.addEventListener("DOMContentLoaded", function() {
+            applyAnimations(); // Apply animations on initial load
+        });
+    </script>
+    
+</body>
+</html>

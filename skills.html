@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills Page</title>
+    <style>
+        body {
+            margin: 0; /* Remove default margin */
+            font-family: Arial, sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0f7fa; /* Light blue text */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            padding: 0 20px; /* Add some horizontal padding */
+        }
+        header {
+            background-color: #0d0d0d; 
+            padding: 30px 20px; /* Increased header padding */
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            width: 100%; /* Make header full width */
+            position: fixed; /* Fix header at top */
+            top: 0; /* Align to the top */
+            left: 0; /* Align to the left */
+            z-index: 1000; /* Ensure it stays above other content */
+        }
+        .logo {
+            margin: 0; 
+            color: #00cfff; 
+            font-size: 1.8em; /* Slightly larger font size */
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0; /* Remove margin */
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav ul li:last-child {
+            margin-right: 20px; /* Increased margin for the last item (Feedback) */
+        }
+        nav a {
+            color: #00cfff; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s; 
+        }
+        nav a:hover {
+            color: #fff; 
+            text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff; 
+        }
+        h1 {
+            margin-top: 80px; /* Adjusted for header height */
+            margin-bottom: 30px;
+            color: #81d4fa; /* Neon light blue heading */
+            text-shadow: 0 0 10px #81d4fa, 0 0 20px #81d4fa;
+            text-align: center; /* Center the heading */
+        }
+        .skills-container {
+            display: flex; /* Keep items in a single row */
+            justify-content: center;
+            flex-wrap: nowrap; /* Ensure items do not wrap */
+            max-width: 1000px; /* Increased max width */
+            margin: 0 auto; /* Center the container */
+        }
+        .skill {
+            background-color: #1e1e1e; /* Darker card background */
+            border-radius: 15px; /* Curved corners */
+            width: 300px; /* Increased width */
+            height: 300px; /* Increased height */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(129, 212, 250, 0.5);
+            transition: transform 0.3s;
+            margin: 15px; /* Space between squares */
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        .skill:hover {
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+        @keyframes dance {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            25% {
+                transform: translateY(-10px);
+            }
+            50% {
+                transform: translateY(10px);
+            }
+            75% {
+                transform: translateY(-5px);
+            }
+        }
+        .dance {
+            animation: dance 1s infinite; /* Apply dance animation */
+        }
+        .skill-text {
+            text-align: center;
+            z-index: 1;
+        }
+        .skill-name {
+            font-size: 24px;
+            margin-bottom: 5px;
+            color: #81d4fa; /* Neon light blue */
+        }
+        .skill-points {
+            font-size: 14px;
+            color: #e0f7fa; /* Light text */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h2 class="logo">Skills</h2>
+        <nav>
+            <ul>
+                <li><a href="1_11.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <h1 style="font-size: 60px;">My Skills</h1>
+    <div class="skills-container">
+        <div class="skill dance">
+            <div class="skill-text">
+                <div class="skill-name">HTML</div>
+                <div class="skill-points">• Structure web pages<br>• Semantics<br>• Forms and inputs</div>
+            </div>
+        </div>
+        <div class="skill dance">
+            <div class="skill-text">
+                <div class="skill-name">CSS</div>
+                <div class="skill-points">• Styling web pages<br>• Flexbox & Grid<br>• Animations</div>
+            </div>
+        </div>
+        <div class="skill dance">
+            <div class="skill-text">
+                <div class="skill-name">Python</div>
+                <div class="skill-points">• Data analysis<br>• Web development<br>• Automation scripts</div>
+            </div>
+        </div>
+        <div class="skill dance">
+            <div class="skill-text">
+                <div class="skill-name">Linux</div>
+                <div class="skill-points">• Command line usage<br>• Shell scripting<br>• System administration</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Add the 'dance' class to all skill boxes when the page loads
+        window.onload = function() {
+            const skills = document.querySelectorAll('.skill');
+            skills.forEach(skill => {
+                skill.classList.add('dance');
+            });
+        };
+    </script>
+</body>
+</html>

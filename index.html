@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="styles.css"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #000; 
+            color: #00cfff; 
+            line-height: 1.6;
+        }
+        header {
+            background-color: #0d0d0d; 
+            padding: 20px;
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            position: relative; 
+            top: -100px; 
+            transition: top 0.5s ease; 
+        }
+        header.show {
+            top: 0; 
+        }
+        .logo {
+            margin: 0; 
+            color: #00cfff; 
+            font-size: 1.5em; 
+        }
+        .contact-info {
+            display: flex; 
+            justify-content: flex-start; 
+            margin-top: 20px; 
+        }
+        .contact-info p {
+            margin: 0 15px; 
+            font-size: 42px; 
+            opacity: 0; 
+            transform: translateY(-20px); /* Start slightly above */
+            transition: opacity 0.5s ease, transform 0.5s ease; 
+        }
+        .contact-info a {
+            color: rgb(116, 85, 136); 
+            text-decoration: none; 
+        }
+        .contact-info a:hover {
+            color: #ffcccc; 
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+        nav a {
+            color: #00cfff; 
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s, text-shadow 0.3s; 
+        }
+        nav a:hover {
+            color: #fff; 
+            text-shadow: 0 0 10px #00cfff, 0 0 20px #00cfff; 
+        }
+        .footer {
+            background-color: #0d0d0d; 
+            color: #00cfff; 
+            text-align: center;
+            padding: 20px; 
+            border-top: 3px solid #00cfff; 
+            box-shadow: 0 -4px 20px rgba(0, 207, 255, 0.5);
+            width: 100%; 
+        }
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px; 
+        }
+        .text-content {
+            flex: 1;
+            padding-right: 20px; 
+        }
+        .text-content h1, .text-content p {
+            opacity: 0; 
+            transform: translateY(20px); 
+            transition: opacity 0.5s ease, transform 0.5s ease; 
+        }
+        .image-content img {
+            height: 300px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 0 30px rgba(0, 207, 255, 0.5);
+            transition: transform 0.5s ease; 
+        }
+        .image-content {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+        .text-content p {
+            color: #42787b; 
+        }
+
+        /* Vibrate Animation */
+        @keyframes vibrate {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            20% {
+                transform: translateY(-2px);
+            }
+            40% {
+                transform: translateY(2px);
+            }
+            60% {
+                transform: translateY(-2px);
+            }
+            80% {
+                transform: translateY(2px);
+            }
+        }
+
+        /* Apply vibrate animation to icons */
+        .contact-info p.vibrate {
+            animation: vibrate 0.5s forwards; 
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h3 class="logo">PERSONAL PORTFOLIO</h3>
+        <nav>
+            <ul>
+                <li><a href="1_11.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="skills.html">Skills</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div id="home" class="container">
+        <div class="text-content">
+            <h1>Welcome to My Portfolio!</h1>
+            <p style="font-size: 20px;">
+                I built this personal portfolio webpage using HTML , CSS and JavaScript to showcase my journey and skills as a first-semester Computer Science Engineering student. This portfolio highlights my projects and interests in technology. If you’d like to learn more about me, feel free to click on the links above for "About," "Skills," and "Contact" sections to explore further.
+            </p>
+            <h1>Contact Me</h1>
+            <div class="contact-info">
+                <p>
+                    <a href="mailto:ritishkalia28@gmail.com">
+                        <i class="fas fa-envelope"></i> 
+                    </a>
+                </p>
+                <p>
+                    <a href="tel:+917626886353">
+                        <i class="fas fa-phone"></i> 
+                    </a>
+                </p>
+                <p>
+                    <a href="https://www.linkedin.com/in/ritish-kalia-722444316" target="_blank">
+                        <i class="fab fa-linkedin"></i> 
+                    </a>
+                </p>
+                <p>
+                    <a href="https://x.com/ritish28" target="_blank">
+                        <i class="fab fa-twitter"></i> 
+                    </a>
+                </p>
+            </div>
+        </div>
+        <div class="image-content">
+            <img src="Screenshot 2024-10-23 234239.png" alt="Ritish Kalia" />
+        </div>
+    </div>
+    <footer class="footer">
+        <p>&copy; 2024 RITISH KALIA</p>
+    </footer>
+    
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const header = document.querySelector('header');
+            const icons = document.querySelectorAll('.contact-info p');
+
+            header.classList.add('show'); // Trigger header animation
+
+            // Trigger icon animation
+            icons.forEach((icon, index) => {
+                setTimeout(() => {
+                    icon.style.opacity = 1; 
+                    icon.classList.add('vibrate'); // Add vibrate class to trigger animation
+                    icon.style.transform = 'translateY(0)'; // Bring icons down to original position
+                }, index * 300); // Stagger the animation
+            });
+
+            applyAnimations(); 
+        });
+
+        function applyAnimations() {
+            const sections = document.querySelectorAll('.container');
+            sections.forEach(section => {
+                section.style.opacity = 0; 
+                section.style.transition = 'opacity 0.5s ease';
+                setTimeout(() => {
+                    section.style.opacity = 1; 
+                }, 100);
+            });
+
+            const images = document.querySelectorAll('.image-content img');
+            images.forEach(image => {
+                image.style.transform = 'scale(1.2)';
+                image.style.transition = 'transform 0.5s ease';
+                setTimeout(() => {
+                    image.style.transform = 'scale(1)'; 
+                }, 100); 
+            });
+
+            const textContents = document.querySelectorAll('.text-content h1, .text-content p');
+            textContents.forEach(text => {
+                text.style.opacity = 0; 
+                text.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    text.style.opacity = 1; 
+                    text.style.transform = 'translateY(0)';
+                }, 200); 
+            });
+        }
+    </script>
+</body>
+</html>
+
